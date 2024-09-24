@@ -1,28 +1,33 @@
+// Import required modules
+const express = require('express');
+const mongoose = require('mongoose');
+require('dotenv').config(); // to load environment variables
 
-const { MongoClient, ServerApiVersion } = require('mongodb');
-require('dotenv').config();
-const dbPassword = process.env.DB_PASSWORD;
-const uri = `mongodb+srv://minecraft5ic26:${dbPassword}@animefigures.2kjxv.mongodb.net/?retryWrites=true&w=majority&appName=AnimeFigures`;
+// Initialize express app
+const app = express();
+const PORT = 3000; // you can change the port number as needed
 
-// Create a MongoClient with a MongoClientOptions object to set the Stable API version
-const client = new MongoClient(uri, {
-  serverApi: {
-    version: ServerApiVersion.v1,
-    strict: true,
-    deprecationErrors: true,
-  }
+// MongoDB connection string
+const mongoURI = `mongodb+srv://minecraft5ic26:${process.env.DB_PASSWORD}@animefigures.2kjxv.mongodb.net/?retryWrites=true&w=majority&appName=AnimeFigures`;
+
+// Connect to MongoDB
+mongoose.connect(mongoURI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+})
+.then(() => {
+  console.log('Successfully connected to MongoDB');
+})
+.catch((error) => {
+  console.error('Error connecting to MongoDB:', error);
 });
 
-async function run() {
-  try {
-    // Connect the client to the server	(optional starting in v4.7)
-    await client.connect();
-    // Send a ping to confirm a successful connection
-    await client.db("admin").command({ ping: 1 });
-    console.log("Pinged your deployment. You successfully connected to MongoDB!");
-  } finally {
-    // Ensures that the client will close when you finish/error
-    await client.close();
-  }
-}
-run().catch(console.dir);
+// Basic route to test server
+app.get('/', (req, res) => {
+  res.send('MongoDB is connected!');
+});
+
+// Start the server
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});
