@@ -27,6 +27,13 @@ app.get('/', (req, res) => {
   res.send('MongoDB is connected!');
 });
 
+//use middleware
+app.use(express.json());
+
+// Import routes
+const figuresRouter = require('./routes/figures');
+app.use('/figures', figuresRouter);
+
 // Start the server
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
