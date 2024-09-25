@@ -9,15 +9,15 @@ export const siteConfig = {
       href: "/",
     },
     {
-      label: "Docs",
+      label: "Characters",
       href: "/docs",
     },
     {
-      label: "Pricing",
+      label: "Series",
       href: "/pricing",
     },
     {
-      label: "Blog",
+      label: "Recent Releases",
       href: "/blog",
     },
     {
