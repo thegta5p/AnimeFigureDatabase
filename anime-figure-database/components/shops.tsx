@@ -94,7 +94,7 @@ export const Shops = () => {
               key={shop.name}
               className="grid grid-rows place-items-center gap-y-2"
             >
-              <a href={shop.url} target="_blank" rel="noopener noreferrer">
+              <a href={shop.url} rel="noopener noreferrer" target="_blank">
                 <Image alt={shop.name} src={shop.logo} width={shop.width} />
               </a>
               <div className="">{shop.name}</div>
