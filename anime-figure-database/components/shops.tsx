@@ -2,6 +2,7 @@
 
 import { Card, CardHeader, CardBody, Divider } from "@nextui-org/react";
 import { Image } from "@nextui-org/react";
+import { FaCartShopping } from "react-icons/fa6";
 
 export const Shops = () => {
   const shops = [
@@ -83,6 +84,7 @@ export const Shops = () => {
     <div>
       <Card>
         <CardHeader>
+          <FaCartShopping className="mx-2" />
           <div>Shops</div>
         </CardHeader>
         <Divider />
