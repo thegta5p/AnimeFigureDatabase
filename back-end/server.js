@@ -5,7 +5,10 @@ require('dotenv').config(); // to load environment variables
 
 // Initialize express app
 const app = express();
-const PORT = 3000; // you can change the port number as needed
+const PORT = 4000; // you can change the port number as needed
+//Enable cors
+const cors = require('cors');
+app.use(cors());
 
 // MongoDB connection string
 const mongoURI = `mongodb+srv://minecraft5ic26:${process.env.DB_PASSWORD}@animefigures.2kjxv.mongodb.net/?retryWrites=true&w=majority&appName=AnimeFigures`;

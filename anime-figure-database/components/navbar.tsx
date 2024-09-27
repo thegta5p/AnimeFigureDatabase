@@ -17,6 +17,7 @@ import clsx from "clsx";
 import { siteConfig } from "@/config/site";
 import { ThemeSwitch } from "@/components/theme-switch";
 import { SearchIcon, Logo } from "@/components/icons";
+import { AddFigure } from "@/components/add-figure";
 
 export const Navbar = () => {
   const searchInput = (
@@ -71,7 +72,7 @@ export const Navbar = () => {
         </NavbarItem>
         <NavbarItem className="hidden lg:flex w-3/4">{searchInput}</NavbarItem>
         <NavbarItem className="hidden lg:flex">
-          <Button color="primary">Add New</Button>
+          <AddFigure />
         </NavbarItem>
       </NavbarContent>
 
