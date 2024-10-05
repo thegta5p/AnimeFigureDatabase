@@ -37,6 +37,9 @@ app.use(express.json());
 const figuresRouter = require('./routes/figures');
 app.use('/figures', figuresRouter);
 
+const charactersRouter = require('./routes/characters');
+app.use('/characters', charactersRouter);
+
 // Start the server
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
